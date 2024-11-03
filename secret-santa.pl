@@ -3,16 +3,12 @@
 use 5.036;
 use utf8;
 
-use Feature::Compat::Class;
+use Feature::Compat::Class 0.07;
 use List::Util qw(first shuffle zip);
 
 class Person {
-    field $title :param;
-    field $family_name :param;
-
-    method title {$title}
-
-    method family_name {$family_name}
+    field $title :param :reader;
+    field $family_name :param :reader;
 
     method is_related_to ($other) { $family_name eq $other->family_name }
 
